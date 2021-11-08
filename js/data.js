@@ -141,19 +141,21 @@ function loopFunction(){
 //creo la funzione che crea il box
 
 function printBox(box){
-	
-	//tramite un template iserisco i box
-	post.innerHTML = `
-	<div class="container">
-	<div class="box">
+	//aggancio l'elemento dove andrò ad inserire i box
+	const main = document.querySelector('main');
+	//creo l'elemento div/box
+	const box = document.createElement('div');
+	//gli attribuisco la classe creata nel css
+	box.className = 'box';
+	//inserisco tramite un template i dati nel box
+	box.innerHTML = `
 		<div class="icon">
 			<i class="fas fa-cat"></i>
 		</div>
-		<div class="name-animal">${animals[i].name}</div>
-	</div>
-
-</div>
+		<div class="name-animal">
+			${animals[i].name}
+		</div>
 	
 	`
-
 }
+
