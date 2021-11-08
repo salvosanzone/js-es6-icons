@@ -14,10 +14,11 @@
     <div class="header-top"><h1>FontIcons</h1></div>
     <div class="header-bottom py-1">
       <form action="">FILTRA PER TIPO</form>
-      <select class="form-select-sm-2" aria-label="Default select example">
+      <select id="select" onchange="loopFunction()"class="form-select-sm-2" aria-label="Default select example">
         <option value="1">All</option>
-        <option value="2">Select</option>
-        <option value="3">Filtered</option>
+        <option value="2">Animal</option>
+        <option value="3">Vegetable</option>
+        <option value="4">User</option>
       </select>
     </div>
   </header>
@@ -26,7 +27,9 @@
         <div class="icon">
           <i class="fas fa-cat"></i>
         </div>
-        <div class="name-animal">cat</div>
+        <div class="name-element">
+          cat
+        </div>
       </div> -->
   </main>
   <script src="js/data.js"></script>

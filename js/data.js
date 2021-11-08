@@ -1,4 +1,4 @@
-const animals = [
+const elements = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -113,7 +113,7 @@ const animals = [
 	}
 ];
 
-console.log(animals);
+console.log(elements);
 /*
 	**Milestone 1**
 Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell’icona e l’icona stessa.
@@ -129,20 +129,46 @@ Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni ic
 
 
 loopFunction();
-function loopFunction(){
+function loopFunction() {
+	//do una stringa vuota
+	let str = '';
+	//aggancio tramite l'id la select
+const selectElement = parseInt(document.getElementById('select').value);
+//assegno l'evento
+selectElement.addEventListener('change', function(){
+	//ricavo il numero di box in base all'elemento scelto
+let howManyBox;
+switch(selectElement){
+	case 1:
+		howManyBox = 16; //numero di box
+		break;
+	case 2:
+		howManyBox = 8;
+		break;
+	case 3:
+		howManyBox = 4;
+		break;
+	case 4:
+		howManyBox = 4;
+		break;
+}
+});
+console.log(selectElement);
+
+
 	//ciclo la base dati
-	for(let animal of animals){
-	////delego a una funzione la creazione dell'html di ogni post
-	printBox(box);
+	for(let element of elements){
+		////delego a una funzione, a cui attribuisco il paramentro 'element'->ogni element of elements , la creazione dei box sull'html
+		printBox(element);
 	}
-	  //appendo al main i box
-    main.append(box);
 }
 
-
-//creo la funzione che crea il box
-
-function printBox(box){
+//creo la funzione che crea il box, tutto cio che scrivo dentro la funzione nasce e muore la dentro
+/**
+ * 
+ * @param {*} element : è l'object che contiene le info dell'animale,user o vegetable (potrei chiamarlo anche pippo, cio che importa è cio che rappresenta)
+ */
+function printBox(element){
 	//aggancio l'elemento dove andrò ad inserire i box
 	const main = document.querySelector('main');
 	//creo l'elemento div/box
@@ -152,13 +178,16 @@ function printBox(box){
 	//inserisco tramite un template i dati nel box
 	box.innerHTML = `
 		<div class="icon">
-			<i class="fas fa-cat"></i>
+			<i class="fas fa-cat">bvbv</i>
 		</div>
 		<div class="name-animal">
-			${animals[i].name}
+			${element.name}
 		</div>
 	
-	`
+	`;
+
+	//appendo al main i box
+	main.append(box);	
 }
 
 
@@ -167,3 +196,30 @@ function printBox(box){
 **Milestone 2**
 Ciascuna icona ha una proprietà “color”: utilizzare questa proprietà per visualizzare le icone del colore corrispondente.
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+**Milestone 3**
+Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l’utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
+*/
+
+
+/*
+1. aggancio la select con il value
+2. creo una variabile che rappresenterà il numero di box
+3. con uno switch per ogni livello inserisco un numero preciso di box
+*/
+
+
+
