@@ -131,12 +131,32 @@ Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni ic
 loopFunction();
 function loopFunction() {
 	//do una stringa vuota
-	let str = '';
-	console.log(str);
+	//document.querySelector('main').innerHTML = '';
+
+	
 	//ciclo la base dati
 	for(let element of elements){
+		 //aggancio la select con l' id,la inizializzo e poi aggiungo alla fine value in modo tale da mostrare i livelli
+		 const selectElement = parseInt(document.getElementById('select').value);
+		 //ricaviamo il numero di celle in base al livello 
+		 let howManyBox;
+		 switch (selectElement) {
+			 case 1:
+				 howManyBox = 16; //numero di box
+				 break;
+			 case 2:
+				 howManyBox = 8;
+				 break;
+			 case 3:
+				 howManyBox = 4;
+				 break;
+			 case 4:
+				 howManyBox = 4;
+				 break;
+		 }
 		////delego a una funzione, a cui attribuisco il paramentro 'element'->ogni element of elements , la creazione dei box sull'html
 		printBox(element);
+		
 	}
 }
 
@@ -145,6 +165,8 @@ function loopFunction() {
  * 
  * @param {*} element : è l'object che contiene le info dell'animale,user o vegetable (potrei chiamarlo anche pippo, cio che importa è cio che rappresenta)
  */
+//prima di attivare la funzione printBox do una stringa vuota cosi resetta il main
+//document.querySelector('main').innerHTML = '';
 function printBox(element){
 	//aggancio l'elemento dove andrò ad inserire i box
 	const main = document.querySelector('main');
@@ -155,13 +177,14 @@ function printBox(element){
 	//inserisco tramite un template i dati nel box
 	box.innerHTML = `
 		<div class="icon">
-			<i class="fas fa-cat">bvbv</i>
+			<i class="fas fa${element.name}"></i>
 		</div>
-		<div class="name-animal">
+		<div class="name-element">
 			${element.name}
 		</div>
 	
 	`;
+	
 
 	//appendo al main i box
 	main.append(box);	
@@ -200,21 +223,4 @@ Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi d
 
 
 
-  //aggancio la select con l' id,la inizializzo e poi aggiungo alla fine value in modo tale da mostrare i livelli
-  const selectElement = parseInt(document.getElementById('select').value);
-  //ricaviamo il numero di celle in base al livello 
-  let howManyBox;
-  switch (selectElement) {
-    case 1:
-      howManyBox = 16; //numero di box
-      break;
-    case 2:
-      howManyBox = 8;
-      break;
-    case 3:
-      howManyBox = 4;
-      break;
-    case 4:
-      howManyBox = 4;
-      break;
-  }
+ 
