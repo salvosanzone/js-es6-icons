@@ -132,30 +132,7 @@ loopFunction();
 function loopFunction() {
 	//do una stringa vuota
 	let str = '';
-	//aggancio tramite l'id la select
-const selectElement = parseInt(document.getElementById('select').value);
-//assegno l'evento
-selectElement.addEventListener('change', function(){
-	//ricavo il numero di box in base all'elemento scelto
-let howManyBox;
-switch(selectElement){
-	case 1:
-		howManyBox = 16; //numero di box
-		break;
-	case 2:
-		howManyBox = 8;
-		break;
-	case 3:
-		howManyBox = 4;
-		break;
-	case 4:
-		howManyBox = 4;
-		break;
-}
-});
-console.log(selectElement);
-
-
+	console.log(str);
 	//ciclo la base dati
 	for(let element of elements){
 		////delego a una funzione, a cui attribuisco il paramentro 'element'->ogni element of elements , la creazione dei box sull'html
@@ -223,3 +200,21 @@ Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi d
 
 
 
+  //aggancio la select con l' id,la inizializzo e poi aggiungo alla fine value in modo tale da mostrare i livelli
+  const selectElement = parseInt(document.getElementById('select').value);
+  //ricaviamo il numero di celle in base al livello 
+  let howManyBox;
+  switch (selectElement) {
+    case 1:
+      howManyBox = 16; //numero di box
+      break;
+    case 2:
+      howManyBox = 8;
+      break;
+    case 3:
+      howManyBox = 4;
+      break;
+    case 4:
+      howManyBox = 4;
+      break;
+  }
