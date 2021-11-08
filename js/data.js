@@ -135,6 +135,8 @@ function loopFunction(){
 	////delego a una funzione la creazione dell'html di ogni post
 	printBox(box);
 	}
+	  //appendo al main i box
+    main.append(box);
 }
 
 
@@ -159,3 +161,9 @@ function printBox(box){
 	`
 }
 
+
+
+/*
+**Milestone 2**
+Ciascuna icona ha una proprietà “color”: utilizzare questa proprietà per visualizzare le icone del colore corrispondente.
+*/
