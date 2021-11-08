@@ -1,0 +1,21 @@
+header {
+}
+
+.header-top {
+  color: #29b1dd;
+}
+
+.header-bottom {
+  display: flex;
+  justify-content: center;
+  background-color: #29b1dd;
+  color: white;
+}
+form{
+  margin-right: 10px;
+}
+
+main {
+  height: calc(100vh - 80px);
+  background-color: #dddddd;
+}
